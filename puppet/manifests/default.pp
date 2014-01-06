@@ -2,6 +2,10 @@ node mysql{
   include mysql
 }
 
+node nginxproxy{
+  include nginx_proxy
+}
+
 node postgresql {
 
   class {'postgresql::globals':
