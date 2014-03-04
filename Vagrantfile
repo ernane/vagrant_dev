@@ -1,5 +1,5 @@
 VAGRANTFILE_API_VERSION = "2"
-SYNCED_FOLDER           = "~/Projetos/apps"
+SYNCED_FOLDER           = "/var/www"
 
 BOX_32                  = "precise32"
 BOX_URL_32              = "http://files.vagrantup.com/precise32.box"
