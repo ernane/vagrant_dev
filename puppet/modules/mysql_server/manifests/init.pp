@@ -1,7 +1,7 @@
 # CREATE USER 'vagrant'@'%' IDENTIFIED BY 'password';
 # GRANT ALL PRIVILEGES ON *.* TO 'vagrant'@'%' WITH GRANT OPTION;
 
-class mysql {
+class mysql_server {
   $root_password = 'root'
 
   $bin = '/usr/bin:/usr/sbin'

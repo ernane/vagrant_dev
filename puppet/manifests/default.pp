@@ -1,12 +1,12 @@
 node mysql{
-  include mysql
+  include mysql_server
 }
 
-node nginxproxy{
+node proxy{
   include nginx_proxy
 }
 
-node postgresql {
+node postgres {
 
   class {'postgresql::globals':
     version             => '9.3',
@@ -98,4 +98,33 @@ node ruby {
 
   include zsh, rails
 
+}
+
+node magento{
+
+  Exec {
+          path => ["/usr/bin", "/bin", "/usr/sbin", "/sbin", "/usr/local/bin", "/usr/local/sbin"]
+      }
+
+  # Ensure we are up to date
+  exec { "apt-get update":
+    command => "apt-get update",
+  }
+
+  # Common packages"
+  $commonPackages = ["curl", "git", "build-essential", "zlib1g-dev", "libpcre3", "libpcre3-dev", "libbz2-dev", "libssl-dev", "tar", "unzip", "vim"]
+      package { $commonPackages:
+        ensure => latest,
+        require => Exec['apt-get update'],
+  }
+
+  # Set the configuration
+  file { "/home/vagrant/.gitconfig":
+      ensure  => file,
+      replace => false,
+      owner   => "vagrant",
+      group   => "vagrant",
+      source  => "puppet:///modules/git/gitconfig"
+  }
+  include zsh
 }

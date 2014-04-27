@@ -1,5 +1,5 @@
 VAGRANTFILE_API_VERSION = "2"
-SYNCED_FOLDER           = "/var/www"
+SYNCED_FOLDER           = ENV['SYNCED_FOLDER'] || "/var/www"
 
 BOX_32                  = "precise32"
 BOX_URL_32              = "http://files.vagrantup.com/precise32.box"
@@ -7,13 +7,13 @@ BOX_64                  = "precise64"
 BOX_URL_64              = "http://files.vagrantup.com/precise64.box"
 
 nodes = [
-  { hostname: "Oracle",       ip: "192.168.33.10", memory: "2048", box: BOX_64, box_url: BOX_URL_64 },
-  { hostname: "PostgreSQL",   ip: "192.168.33.11", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
-  { hostname: "Mysql",        ip: "192.168.33.12", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
-  { hostname: "RubyUnicorn1", ip: "192.168.33.13", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
-  { hostname: "RubyUnicorn2", ip: "192.168.33.14", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
-  { hostname: "RubyDev",      ip: "192.168.33.15", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
-  { hostname: "NginxProxy",   ip: "192.168.33.16", memory: "512",  box: BOX_32, box_url: BOX_URL_32 }
+  { hostname: "oracle",   ip: "192.168.33.10", memory: "2048", box: BOX_64, box_url: BOX_URL_64 },
+  { hostname: "postgres", ip: "192.168.33.11", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
+  { hostname: "mysql",    ip: "192.168.33.12", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
+  { hostname: "ruby",     ip: "192.168.33.13", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
+  { hostname: "proxy",    ip: "192.168.33.14", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
+  { hostname: "nginx",    ip: "192.168.33.15", memory: "512",  box: BOX_32, box_url: BOX_URL_32 },
+  { hostname: "magento",  ip: "192.168.33.16", memory: "1024", box: BOX_32, box_url: BOX_URL_32 }
 ]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|

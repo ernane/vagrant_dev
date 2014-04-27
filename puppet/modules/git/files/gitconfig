@@ -28,3 +28,6 @@
         autosetuprebase = always
 [push]
         default = current
+[user]
+  name = Ernane Sena
+  email = ernane.sena@gmail.com

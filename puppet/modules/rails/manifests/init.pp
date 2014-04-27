@@ -1,4 +1,4 @@
-class rails ($username = 'vagrant',  $rubyversion = '2.0.0-p353') {
+class rails ($username = 'vagrant',  $rubyversion = '2.1.1') {
 
     $home_dir    = "/home/${username}"
 
